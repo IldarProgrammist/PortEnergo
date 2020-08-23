@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+ {% block header %}
+      {% include 'header.html' %}
+ {% endblock %}
+
+
+{% block content %}
+
+    {% for p in person.object_list %}
+
+     <div class="wrap-card">
+
+
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-3">
+
+         {%  if p.photo %}
+                <img src="{{ p.photo.url }}" class="card-img" alt="...">
+                 {% else %}
+                 <img src="{% static 'img/person.jpg' %}" class="card-img" alt="...">
+                 <p></p>
+             {% endif %}
+    </div>
+    <div class="col-md-9">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.first_name }} {{ p.last_name }} {{ p.father_name }}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+
+    {% endfor %}
+
+         <p>{{ p.first_name }}</p>
+           <p> {{ p.last_name }}</p>
+          <p> {{ p.father_name }} </p>
+            <p>{{ p.phone }}</p>
+{% endblock %}
+
+
+{% block paginator %}
+    {% include 'pagingation.html' %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'fouter.html' %}
+{% endblock %}
