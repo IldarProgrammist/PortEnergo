@@ -3,16 +3,12 @@
 
 {% block header %}
 
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
 
-
-      <form class="form-inline" {% url 'person' %} action="{% url 'person' %}">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-
-</nav>
+<header>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">Портэнерго</a>
+    </nav>
+</header>
 
 {% endblock header  %}
 

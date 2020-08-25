@@ -9,6 +9,16 @@
 
 {% block content %}
 
+    <div class="form-search">
+
+             <form class="form-inline" {% url 'person' %} action="{% url 'person' %}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </div>
+
+    <div class="container">
+
     {% for p in person.object_list %}
 
      <div class="wrap-card">
@@ -28,8 +38,15 @@
     <div class="col-md-9">
       <div class="card-body">
         <h5 class="card-title">{{ p.first_name }} {{ p.last_name }} {{ p.father_name }}</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">Отдел: {{ p.dep }} </p>
+          <p class="card-text">Должность: {{ p.pos }} </p>
+
+        <p class="card-text">Внутренний номер телефона: {{ p.phone }} </p>
+          <p class="card-text">Электронная почта: <a class="email_Link" href="#">{{ p.mail }}</a>  </p>
+
+
+
+        <p class="card-text"><small class="text-muted">Последнее обновление {{ p.date_uppdate }}</small></p>
       </div>
     </div>
   </div>
@@ -43,6 +60,7 @@
            <p> {{ p.last_name }}</p>
           <p> {{ p.father_name }} </p>
             <p>{{ p.phone }}</p>
+    </div>
 {% endblock %}
 
 
@@ -54,3 +72,5 @@
 {% block footer %}
     {% include 'fouter.html' %}
 {% endblock %}
+
+

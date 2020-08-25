@@ -5,7 +5,18 @@
     padding-left: 8px;
 }
 
-body{
-
+.telephone{
+    color: #005cbf;
+}
+.email_Link{
+    color: #5a6268;
+    text-decoration: none;
+}
+.email_Link:hover{
+    color: #005cbf;
+    text-decoration: none;
 }
 
+.form-search{
+    margin: 35px;
+}

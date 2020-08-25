@@ -1,18 +1,7 @@
-from django.core import paginator
 from django.shortcuts import render
 from person.models import Person
-from  django.views.generic import ListView
 from  django.db.models import  Q
 from  django.core.paginator import  Paginator
-
-# class personListView(ListView):
-#
-#     model = Person
-#     context_object_name = 'person'
-#     paginate_by = 2
-#     template_name = 'person/person.html'
-#     queryset = Person.objects.order_by('first_name')
-
 
 def ListPersonView(request):
     person = Person.objects.all()
@@ -24,7 +13,7 @@ def ListPersonView(request):
         person = Person.objects.all().order_by('first_name')
 
 
-    paginator = Paginator(person,2)
+    paginator = Paginator(person,3)
     page_number = request.GET.get('page',1)
     page = paginator.get_page(page_number)
 
@@ -47,6 +36,6 @@ def ListPersonView(request):
         'prev_url': prev_url
 
         }
-
-
     return render(request,'person/person.html', context=context)
+
+
