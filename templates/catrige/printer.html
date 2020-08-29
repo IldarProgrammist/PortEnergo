@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+ {% block header %}
+      {% include 'header.html' %}
+ {% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+     <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Серийный номер</th>
+              <th scope="col">IP</th>
+              <th scope="col">Статус</th>
+               <th scope="col">Титул</th>
+                <th scope="col">Кабинет</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+                {% for p in printer %}
+
+           <tr>
+              <th scope="row">{{ p.id }}</th>
+              <td>{{ p.serial_number }}</td>
+              <td>{{ p.ip }}</td>
+              <td>{{ p.printer_status }}</td>
+                <td>{{ p.location.titul.name }}</td>
+                <td>{{ p.location.name }}</td>
+
+
+            </tr>
+                {% endfor %}
+
+          </tbody>
+     </table>
+    </div>
+
+{% endblock %}
+
+
+
+{% block paginator %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'fouter.html' %}
+{% endblock %}
+
+

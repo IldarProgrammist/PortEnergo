@@ -1,6 +1,8 @@
 from django.contrib import admin
 
 from catrige.models import Color, Firm, PrinterModel, CatrigeModel, Status, Catrige, PrinterStatus, Printer
+from locations.models import Room
+
 
 class ColoraAdmin(admin.ModelAdmin):
     list_display = ['name']
@@ -26,8 +28,11 @@ class PrinterStatusAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 class PrinterAdmin(admin.ModelAdmin):
-    list_display = ['printer_model','serial_number','ip','printer_status','discription']
+    list_display = ['printer_model','serial_number','ip','printer_status','discription','location']
     search_fields = ['serial_number','ip']
+
+
+
 
 admin.site.register(Color, ColoraAdmin)
 admin.site.register(Firm, FirmAdmin)
@@ -37,7 +42,6 @@ admin.site.register(Status, StatusAdmin)
 admin.site.register(Catrige,CatrigeAdmin)
 admin.site.register(PrinterStatus,PrinterStatusAdmin)
 admin.site.register(Printer, PrinterAdmin)
-
 
 
 

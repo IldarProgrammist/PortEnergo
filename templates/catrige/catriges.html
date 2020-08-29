@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+ {% block header %}
+      {% include 'header.html' %}
+ {% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+     <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Модель картриджа</th>
+              <th scope="col">Серийный номер</th>
+              <th scope="col">Статус</th>
+              <th scope="col">Цвет</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for c in catrige %}
+
+           <tr>
+              <th scope="row">{{ c.id }}</th>
+              <td>{{ c.catrige_models }}</td>
+              <td>{{ c.serialNamber }}</td>
+              <td>{{ c.status }}</td>
+              <td>{{ c.catrige_models.color }}</td>
+            </tr>
+                {% endfor %}
+
+          </tbody>
+     </table>
+    </div>
+
+{% endblock %}
+
+
+
+{% block paginator %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'fouter.html' %}
+{% endblock %}
+
+

@@ -1,5 +1,8 @@
 from django.db import models
 
+from locations.models import Room
+
+
 class Color(models.Model):
     name = models.CharField(max_length=30,verbose_name='Цвет', unique=True)
     slug = models.SlugField(unique=True)
@@ -93,14 +96,17 @@ class Printer(models.Model):
     serial_number = models.CharField(max_length=100, verbose_name='серийные номре')
     ip = models.CharField(max_length=30, verbose_name='ip-адрес')
     printer_status = models.ForeignKey(PrinterStatus, on_delete=models.CASCADE, verbose_name='Статус принтера')
+    location = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Место расположения')
+
     discription = models.TextField(verbose_name='Описание', blank=True)
+
 
     class Meta:
         verbose_name = 'Принтер'
         verbose_name_plural = 'Принтеры'
 
     def __str__(self):
-        return self.serial_number
+        return '{} {}'.format(self.serial_number, self.location.titul)
 
 
 
