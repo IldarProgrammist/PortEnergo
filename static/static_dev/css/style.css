@@ -19,4 +19,20 @@
 
 .form-search{
     margin: 35px;
+
+}
+
+
+.card-deck{
+
+    margin: 32px;
+}
+
+
+.link-img{
+    color: #005cbf;
+}
+
+.link-img:hover{
+    border: 2px double #005cbf;
 }
